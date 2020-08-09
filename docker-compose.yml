@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    container_name: react-app-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - .:/app
+    stdin_open: true
+  # Use following tests service for testing purpose only
+  # You can avoid following tests service by:
+  # 1 - docker-compose up
+  # 2 - In second terminal window type:
+  # docker container exec -it react-app-dev npm run test
+  tests:
+    container_name: react-app-dev-tests
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # Override the starting command used inside Dockerfile.dev
+    command: ['npm', 'run', 'test']
