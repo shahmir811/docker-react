@@ -16,8 +16,7 @@ function App() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					We are using docker alongwith Travis CI and AWS ElasticBeanStalk for
-					deployment.
+					Working with docker
 				</a>
 			</header>
 		</div>
