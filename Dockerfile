@@ -10,5 +10,6 @@ RUN npm run build
 
 # RUN PHASE
 FROM nginx
+EXPOSE 80
 # --from mean "from some phase". In our case, its builder
 COPY --from=builder /app/build /usr/share/nginx/html
