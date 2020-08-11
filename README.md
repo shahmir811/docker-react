@@ -9,3 +9,5 @@
 1. Dockerfile.dev is used to build image for developement and testing
 2. Dockerfile is used for production image of react application
 3. .travis.yml is used for CI/CD with [Travis CI](https://travis-ci.org/)
+4. Build docker containers using <mark>docker-compose up</mark> command
+5. Stop running docker containers with <mark>docker-compose down</mark> command
