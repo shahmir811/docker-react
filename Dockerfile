@@ -1,9 +1,9 @@
 # BUILD PHASE
 # "as" is used for tagging.
 # before next FROM, all code belongs to builder phase
-FROM node:alpine as builder
+FROM node:alpine
 WORKDIR '/app'
-COPY package.json .
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
@@ -12,4 +12,4 @@ RUN npm run build
 FROM nginx
 EXPOSE 80
 # --from mean "from some phase". In our case, its builder
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
